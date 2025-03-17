@@ -45,16 +45,19 @@ def generate_license(hardware_id, duration_days):
         license_data = json.dumps({
             'hardware_id': hardware_id,
             'duration_days': duration
-        }).encode('utf-8')  # Explicitly encode as UTF-8
-
+        }).encode('utf-8')
+        
         signature = PRIVATE_KEY.sign(
             license_data,
             padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.MAX_LENGTH),
             hashes.SHA256()
         )
-
-        # Ensure separator is a byte string
-        license_key = base64.b64encode(signature + b':' + license_data).decode('utf-8')
+        
+        # Store signature length as the first 4 bytes
+        signature_length = len(signature)
+        combined_data = signature_length.to_bytes(4, byteorder='big') + signature + license_data
+        
+        license_key = base64.b64encode(combined_data).decode('utf-8')
         return True, license_key
     except ValueError:
         return False, "Invalid duration. Please enter a number of days (e.g., 180 for 6 months)."
