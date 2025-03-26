@@ -1,0 +1,38 @@
+{
+    "fdb280a1-2519-4d3a-acaa-8198336a1f07": {
+        "hardware_id": " MP2D97V4-MP2D97V4",
+        "expiry_date": "2025-07-15 13:12:32",
+        "created_at": "2025-03-17 13:12:32",
+        "validity_days": 120
+    },
+    "f51dc70b-f885-432d-bd39-348a61b2df80": {
+        "hardware_id": " MP2D97V4-MP2D97V4",
+        "expiry_date": "2025-07-17 13:14:39",
+        "created_at": "2025-03-17 13:14:39",
+        "validity_days": 122
+    },
+    "8a34ce52-d71c-492a-9599-7038bb347fd8": {
+        "hardware_id": " MP2D97V4-MP2D97V4",
+        "expiry_date": "2025-07-17 13:49:00",
+        "created_at": "2025-03-17 13:49:00",
+        "validity_days": 122
+    },
+    "73514b6e-76b0-4460-b09e-38aae07abe47": {
+        "hardware_id": "MP2D97V4-MP2D97V4",
+        "expiry_date": "2058-08-31 13:49:55",
+        "created_at": "2025-03-17 13:49:55",
+        "validity_days": 12220
+    },
+    "53b26797-e428-4a83-be46-d3af49cf5a25": {
+        "hardware_id": "MP2D97V4-MP2D97V4",
+        "expiry_date": "2026-07-30 13:51:04",
+        "created_at": "2025-03-17 13:51:04",
+        "validity_days": 500
+    },
+    "d8974dc3-f5a6-4bdc-a8cc-e186c5abc12a": {
+        "hardware_id": "MP2D97V4-MP2D97V4",
+        "expiry_date": "2026-07-30 13:57:14",
+        "created_at": "2025-03-17 13:57:14",
+        "validity_days": 500
+    }
+}

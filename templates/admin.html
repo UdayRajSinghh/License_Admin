@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin License Generator</title>
+</head>
+<body>
+    <h1>Generate License Key</h1>
+    <form method="POST">
+        <label for="hardware_id">Hardware ID:</label><br>
+        <input type="text" id="hardware_id" name="hardware_id" required><br><br>
+        <label for="validity_days">Validity Period (days):</label><br>
+        <input type="number" id="validity_days" name="validity_days" min="1" required><br><br>
+        <button type="submit">Generate License</button>
+    </form>
+
+    {% if license_key %}
+        <h2>Result</h2>
+        <p><strong>License Key:</strong> {{ license_key }}</p>
+        <p><strong>Expiry Date (for reference):</strong> {{ expiry_date }}</p>
+        <p>Share only the license key with the user.</p>
+    {% endif %}
+</body>
+</html>
