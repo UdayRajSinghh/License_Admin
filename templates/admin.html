@@ -2,23 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin License Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin License Key Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .license-key {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            word-wrap: break-word;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Generate License Key</h1>
+    <h1>Admin License Key Generator</h1>
+    
     <form method="POST">
-        <label for="hardware_id">Hardware ID:</label><br>
-        <input type="text" id="hardware_id" name="hardware_id" required><br><br>
-        <label for="validity_days">Validity Period (days):</label><br>
-        <input type="number" id="validity_days" name="validity_days" min="1" required><br><br>
-        <button type="submit">Generate License</button>
+        <div class="form-group">
+            <label for="hardware_id">Customer Hardware ID:</label>
+            <input type="text" id="hardware_id" name="hardware_id" placeholder="Enter Hardware ID" required>
+        </div>
+        <div class="form-group">
+            <label for="duration_days">Duration (in days, e.g., 180 for 6 months, 365 for 1 year):</label>
+            <input type="text" id="duration_days" name="duration_days" placeholder="e.g., 365" required>
+        </div>
+        <button type="submit">Generate License Key</button>
     </form>
 
+    {% if message %}
+        <div class="message {% if 'successfully' in message.lower() %}success{% else %}error{% endif %}">
+            {{ message }}
+        </div>
+    {% endif %}
+
     {% if license_key %}
-        <h2>Result</h2>
-        <p><strong>License Key:</strong> {{ license_key }}</p>
-        <p><strong>Expiry Date (for reference):</strong> {{ expiry_date }}</p>
-        <p>Share only the license key with the user.</p>
+        <div class="license-key">
+            <strong>Generated License Key:</strong><br>
+            {{ license_key }}
+        </div>
     {% endif %}
 </body>
 </html>
